@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:hive/hive.dart';
+import 'package:todo_app/core/utils/connectivity_service.dart';
 import 'package:todo_app/features/tasks/data/repository/task_repository_impl.dart';
 import 'package:todo_app/features/tasks/domain/repository/task_repository.dart';
 import 'package:todo_app/features/tasks/presentations/bloc/task_bloc.dart';
@@ -16,6 +17,7 @@ final sl = GetIt.instance;
 
 Future<void> init(Box box) async {
   sl.registerLazySingleton(() => http.Client());
+  sl.registerLazySingleton(() => ConnectivityService());
   sl.registerLazySingleton(
     () => TaskRemoteDatasource(sl()),
   );
@@ -30,6 +32,7 @@ Future<void> init(Box box) async {
   sl.registerLazySingleton(() => AddTask(sl()));
   sl.registerLazySingleton(() => DeleteTask(sl()));
   sl.registerLazySingleton(() => CompleteTask(sl()));
+  sl.registerLazySingleton(() => ConnectivityService());
 
   sl.registerFactory(
     () => TaskBloc(

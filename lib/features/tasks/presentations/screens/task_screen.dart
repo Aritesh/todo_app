@@ -19,8 +19,6 @@ class _TaskScreenState extends State<TaskScreen> {
   @override
   void initState() {
     super.initState();
-
-    // Load tasks initially
     context.read<TaskBloc>().add(LoadTasks());
   }
 
@@ -76,8 +74,6 @@ class _TaskScreenState extends State<TaskScreen> {
 
       body: Column(
         children: [
-
-          /// 🔍 Search Bar
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -103,8 +99,6 @@ class _TaskScreenState extends State<TaskScreen> {
               },
             ),
           ),
-
-          /// 📋 Task List
           Expanded(
             child: BlocBuilder<TaskBloc, TaskState>(
               builder: (context, state) {
@@ -195,7 +189,6 @@ class _TaskScreenState extends State<TaskScreen> {
         ],
       ),
 
-      /// ➕ Add Task Button
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddTaskDialog,
         child: const Icon(Icons.add),

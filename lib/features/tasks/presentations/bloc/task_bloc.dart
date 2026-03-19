@@ -24,8 +24,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     this.deleteTask,
     this.completeTask,
   ) : super(TaskInitial()) {
-
-    /// ✅ LOAD TASKS
     on<LoadTasks>((event, emit) async {
 
       emit(TaskLoading());
@@ -42,7 +40,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       }
     });
 
-    /// ✅ ADD TASK
     on<AddTaskEvent>((event, emit) async {
 
       try {
@@ -57,7 +54,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       }
     });
 
-    /// ✅ DELETE TASK
     on<DeleteTaskEvent>((event, emit) async {
 
       try {
@@ -72,7 +68,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       }
     });
 
-    /// ✅ COMPLETE TASK (FIXED ERROR HERE)
     on<CompleteTaskEvent>((event, emit) async {
 
       try {
@@ -92,7 +87,6 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       }
     });
 
-    /// ✅ SEARCH TASK
     on<SearchTaskEvent>((event, emit) {
 
       final filtered = allTasks

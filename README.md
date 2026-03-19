@@ -2,15 +2,51 @@
 
 A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Features:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Show list of tasks
+
+Add new task
+
+Mark task complete / incomplete
+
+unmark task complete / incomplete
+
+Delete task
+
+Search tasks
+
+Pull to refresh
+
+Works without internet
+
+
+Design: 
+
+I used BLoC for state management to keep UI and logic separate.
+
+I followed a basic clean architecture approach by separating data, domain, and presentation layers,
+
+GetIt is used for dependency injection.
+
+Hive is used for local data storage.
+
+
+Challenges : 
+
+checkbox was not toggling properly, but I fixed it by passing the correct value.
+
+
+Setup:
+
+Clone the project
+
+Run flutter pub get
+
+Run flutter run
+
+
+
